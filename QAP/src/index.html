@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Change this to your name-->
+    <meta name="author" content="Michael Sheridan" />
+    <meta name="description" content="QAP1" />
+
+    <title>KEYIN Store</title>
+
+
+    <!-- Optional CSS Overrides -->
+    <link rel="stylesheet" href="/Users/keyinstudent/Desktop/QAP/src/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <!-- Change this to your Store's info -->
+        <h1><center>Game Haven</center></h1>
+        <p><center>"Game Haven, Where Play and Adventure Align, Victory Will Be Thine!"</center></p>
+    </header>
+
+    <nav id="category-menu">
+      <script>
+        function O(i)
+        {
+          return typeof i == 'object' ? i : document.getElementById(i)
+        }
+
+        function S(i)
+        {
+          return O(i).style
+        }
+
+        function C(i)
+        {
+          return document.getElementsByClassName(i)
+        }
+      </script>
+        <!-- Dynamically create your menu category buttons here -->
+       <script>
+        const categories = [
+        {
+          name: "Action Packed",
+          description: "Experience thrilling and intense gameplay"
+        },
+        {
+          name: "Enigmatic Adventures",
+          description: "Embark on mysterious and captivating journeys"
+        },
+        {
+          name: "Virtual Reality Delights",
+          description: "Immerse yourself in the world of virtual reality"
+        },
+        {
+          name: "Strategic Mind",
+          description: "Engage in strategic thinking and planning"
+        }
+      ];
+      </script>
+      
+      <ul><li><script>
+      const menuNav = document.getElementById("category-menu");
+      
+      categories.forEach(category => {
+        const button = document.createElement("button");
+        button.innerText = category.name;
+        O(button).onmousemove = function()
+        {S(button).background ='#eee'};
+        O(button).onmouseout = function()
+        {S(button).background ='white'};
+    
+        button.addEventListener("click", () => {
+          showCategoryProducts(category.products);
+          onclick= generateTable()
+        });
+        
+        menuNav.appendChild(button);
+      });
+
+      function showCategoryProducts(categories) {
+        const products = document.getElementById("products");
+        products.innerHTML = "";
+      }
+      </script></li></ul>
+    </nav>
+
+    <hr />
+
+    <main>
+        <h2 id="category">
+            <!-- Dynamically update the selected category title -->
+        </h2>
+
+        <table>
+            <thead>
+                <!-- Statically create the headings for your table here -->
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </thead>
+            <tbody id="products">
+                <!-- Dynamically create your product rows here -->
+                    <script>
+                      function generateTable() {
+  // creates a <table> element and a <tbody> element
+  const tbl = document.createElement("table");
+  const tblBody = document.createElement("tbody");
+  const productFilter = document.getElementsByName("categories");
+
+  // creating all cells
+  for (let i = 0; i < 3; i++) {
+    // creates a table row
+    const row = document.createElement("tr");
+
+    for (let j = 0; j < 6; j++) {
+      // Create a <td> element and a text node, make the text
+      // node the contents of the <td>, and put the <td> at
+      // the end of the table row
+      const cell = document.createElement("td");
+      const cellText = document.createTextNode(product.name);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+    }
+
+    // add the row to the end of the table body
+    tblBody.appendChild(row);
+  }
+
+  // put the <tbody> in the <table>
+  tbl.appendChild(tblBody);
+  // appends <table> into <body>
+  document.body.appendChild(tbl);
+  // sets the border attribute of tbl to '2'
+  tbl.setAttribute("border", "2");
+}
+
+</script>
+            </tbody>
+        </table>
+    </main>
+
+    <!-- JavaScript Data Files -->
+    <script src="src/js/categories.js"></script>
+    <script src="src/js/products.js"></script>
+
+    <!-- Main App JavaScript File -->
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+/**
+ * Override any styles here that you want to change (optional)...
+ */
+ #nav {
+  background-color: #C08374;
+  border: 1px solid #A76358;
+  text-align: center;
+}
+ul {
+  list-style: none;
+  display: inline-block;
+}
+ul li {
+  float: left;
+  margin: 0 115px;
+}
+ul li a {
+  color: white;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #eee;
+}
